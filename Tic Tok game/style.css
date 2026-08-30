@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #111827;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main{
+    text-align: center;
+}
+
+h1{
+    font-size: 42px;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 10px rgba(0,255,255,0.5);
+}
+
+/* Center Board */
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.game{
+    display: grid;
+    grid-template-columns: repeat(3,120px);
+    grid-template-rows: repeat(3,120px);
+    gap: 14px;
+}
+
+/* 3D box style */
+.box{
+    height: 120px;
+    width: 120px;
+    background: linear-gradient(145deg,#1e293b,#0f172a);
+    border-radius: 12px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: cyan;
+    cursor: pointer;
+
+    /* 3D depth */
+    box-shadow: 
+        0 8px 0 #0c1320,
+        0 15px 30px rgba(0,0,0,0.6);
+    transform: perspective(500px) translateZ(10px);
+    transition: 0.25s ease-in-out;
+}
+
+/* Hover raise depth */
+.box:hover{
+    transform: perspective(600px) translateZ(32px);
+    box-shadow: 
+        0 12px 0 #0c1320,
+        0 25px 35px rgba(0,255,255,0.3);
+}
+
+/* Disabled after click */
+.box:disabled{
+    cursor: no-drop;
+    opacity: 0.7;
+}
+
+/* Reset Btn */
+#reset{
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: cyan;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#reset:hover{
+    background: rgb(0,255,170);
+}
+
+/* Winner/Draw text */
+#msg{
+    margin-top: 18px;
+    font-size: 30px;
+    font-weight: bold;
+}
